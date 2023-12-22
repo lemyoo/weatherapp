@@ -37,7 +37,9 @@ export default function Home() {
 
   const fetchData = async (cityName: string) => {
     try {
-      const response = await fetch("http://localhost:3000/api/weather?address=" + cityName);
+      const response = await fetch(
+        "https://eml-weatherapp.netlify.app/api/weather?address=" + cityName
+      );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
     } catch (err) {
@@ -48,7 +50,7 @@ export default function Home() {
   const fetchDataCoordinats = async (longitude: number, latitude: number) => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/weather?lon=" + longitude + "&lat=" + latitude
+        "https://eml-weatherapp.netlify.app/api/weather?lon=" + longitude + "&lat=" + latitude
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
