@@ -14,9 +14,9 @@ interface IWeather {
   };
 }
 
-interface ICloud {
-  name: string;
-}
+//interface ICloud {
+//  name: string;
+//}
 
 const getCurrentDate = () => {
   const date = moment().format("DD, MMMM");
@@ -33,11 +33,13 @@ export default function Home() {
   });
   const [city, setCity] = useState("accra");
 
-  const [cloudName, setCloudName] = useState<ICloud>({ name: "" });
+  //// const [cloudName, setCloudName] = useState<ICloud>({ name: "" });
 
   const fetchData = async (cityName: string) => {
     try {
-      const response = await fetch("http://localhost:3000/api/weather?address=" + cityName);
+      const response = await fetch(
+        "https://eml-weatherapp.netlify.app/api/weather?address=" + cityName
+      );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
     } catch (err) {
@@ -48,7 +50,7 @@ export default function Home() {
   const fetchDataCoordinats = async (longitude: number, latitude: number) => {
     try {
       const response = await fetch(
-        "http://localhost:3000/api/weather?lon=" + longitude + "&lat=" + latitude
+        "https://eml-weatherapp.netlify.app/api/weather?lon=" + longitude + "&lat=" + latitude
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -93,7 +95,6 @@ export default function Home() {
         </form>
         {weatherData && weatherData.weather && weatherData.weather[0].main !== "" ? (
           <>
-            {console.log(weatherData)}
             <div className={styles.icon_and_weatherInfo}>
               <div className={styles.weatherIcon}>
                 {weatherData.weather[0].main === "Clouds" ? (
