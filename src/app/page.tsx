@@ -101,7 +101,7 @@ export default function Home() {
         {weatherData && weatherData.weather && weatherData.weather[0].main !== "" ? (
           <>
             <div className={styles.icon_and_weatherInfo}>
-              <div className={styles.weatherIcon}>
+              <div className=" h-2/3 rounded-t-3xl flex items-center justify-around text-9xl text-white">
                 {weatherData.weather[0].main === "Clouds" ? (
                   <CiCloud />
                 ) : weatherData.weather[0].main === "Haze" ? (
