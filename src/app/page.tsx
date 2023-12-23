@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { CiCloud } from "react-icons/ci";
 import { BsCloudHaze } from "react-icons/bs";
 import moment from "moment";
+import "./globals.css";
 
 interface IWeather {
   name: string;
@@ -38,7 +39,8 @@ export default function Home() {
   const fetchData = async (cityName: string) => {
     try {
       const response = await fetch(
-        "https://eml-weatherapp.netlify.app/api/weather?address=" + cityName
+        //"https://eml-weatherapp.netlify.app/api/weather?address=" + cityName
+        "http://localhost:3000/api/weather?address=" + cityName
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -50,7 +52,8 @@ export default function Home() {
   const fetchDataCoordinats = async (longitude: number, latitude: number) => {
     try {
       const response = await fetch(
-        "https://eml-weatherapp.netlify.app/api/weather?lon=" + longitude + "&lat=" + latitude
+        // "https://eml-weatherapp.netlify.app/api/weather?lon=" + longitude + "&lat=" + latitude
+        "http://localhost:3000/api/weather?lon=" + longitude + "&lat=" + latitude
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
@@ -73,8 +76,10 @@ export default function Home() {
     }
   }, []);
   return (
-    <main className={styles.main}>
-      <article className={styles.widget}>
+    <main className=" flex flex-row justify-between items-center p-24 min-h-dvh ">
+      {/* TODO: main */}
+      <article className=" absolute top-1/2 left-1/2 bg-gradient-to-r from-purple-400 to-gray-600 h-550 w-500 rounded-3xl -translate-x-1/2 -translate-y-1/2 cursor-pointer shadow-lg bg-gradient-to-r from-purple-400 to-gray-600">
+        {/* TODO: widget */}
         <form
           onSubmit={(e) => {
             e.preventDefault();
