@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <main className=" flex flex-row justify-between items-center p-24 min-h-dvh ">
       {/* TODO: main */}
-      <article className=" absolute top-1/2 left-1/2 bg-gradient-to-r from-purple-400 to-gray-600 h-550 w-500 rounded-3xl -translate-x-1/2 -translate-y-1/2 cursor-pointer shadow-lg bg-gradient-to-r from-purple-400 to-gray-600">
+      <article className=" absolute top-1/2 left-1/2 h-550 w-500 rounded-3xl -translate-x-1/2 -translate-y-1/2 cursor-pointer shadow-lg bg-gradient-to-r from-purple-400 to-gray-600">
         {/* TODO: widget */}
         <form
           onSubmit={(e) => {
