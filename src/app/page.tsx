@@ -39,8 +39,8 @@ export default function Home() {
   const fetchData = async (cityName: string) => {
     try {
       const response = await fetch(
-        //"https://eml-weatherapp.netlify.app/api/weather?address=" + cityName
-        "http://localhost:3000/api/weather?address=" + cityName
+        "https://eml-weatherapp.netlify.app/api/weather?address=" + cityName
+        //"http://localhost:3000/api/weather?address=" + cityName
       );
       const jsonData = (await response.json()).data;
       setWeatherData(jsonData);
